@@ -1,0 +1,9 @@
+main: en.awhitaker.slasher.Slasher
+name: Slasher
+version: 0.0.0
+
+description:
+api-version: 1.20
+load: POSTWORLD
+author: alex_whit
+website: https://github.com/4lex-whit/Slasher
