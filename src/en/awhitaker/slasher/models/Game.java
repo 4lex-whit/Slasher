@@ -17,6 +17,8 @@ public class Game {
 	private static List<Player> players = new ArrayList<Player>();
 	private static Player slasher;
 	private static List<Player> survivors = new ArrayList<Player>();
+	private static boolean slasherFrozen;
+	private static boolean survivorsFrozen;
 	
 	public static boolean isRunning() {
 		return running;
