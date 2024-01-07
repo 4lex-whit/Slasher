@@ -11,6 +11,10 @@ public class Game {
 	private static Player slasher;
 	private static List<Player> survivors = new ArrayList<Player>();
 	
+	public static boolean isRunning() {
+		return running;
+	}
+	
 	public static List<Player> getPlayers() {
 		return players;
 	}
