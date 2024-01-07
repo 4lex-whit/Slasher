@@ -67,10 +67,10 @@ public class Game {
 		players.forEach(player -> {
 			// teleport
 			
-			// set game modes
+			// set game mode
 			player.setGameMode(GameMode.SURVIVAL);
 			
-			// clear inventories and effects
+			// clear inventory and effects
 			player.getInventory().clear();
 			player.getActivePotionEffects().clear();
 			
