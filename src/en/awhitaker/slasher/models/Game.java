@@ -2,8 +2,15 @@ package en.awhitaker.slasher.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
+import org.bukkit.GameMode;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public class Game {
 	private static boolean running;
@@ -32,9 +39,42 @@ public class Game {
 		
 		// prepare map
 		
+		
 		// prepare players
+		players.forEach(player -> {
+			// teleport
+			
+			// set game modes
+			player.setGameMode(GameMode.SURVIVAL);
+			
+			// clear inventories and effects
+			player.getInventory().clear();
+			player.getActivePotionEffects().clear();
+			
+			// set health & hunger
+			player.setHealth(20);
+			player.setSaturation(0);
+			player.setFoodLevel(20);
+		});
+		
+		// pick slasher and survivors
+		int slasherIndex = new Random().nextInt(getPlayers().size());
+		slasher = players.get(slasherIndex);
+		survivors = players;
+		survivors.remove(slasherIndex);
+		
+		// give slasher weapon and effect
+		ItemStack weapon = new ItemStack(Material.GOLDEN_AXE, 1);
+		ItemMeta meta = weapon.getItemMeta();
+		meta.setUnbreakable(true);
+		weapon.setItemMeta(meta);
+		
+		slasher.getInventory().setItem(0, weapon);
+		slasher.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, Integer.MAX_VALUE, Integer.MAX_VALUE, false, false, false));
+		
 		
 		// release players
+		
 		
 		// end game
 	}
