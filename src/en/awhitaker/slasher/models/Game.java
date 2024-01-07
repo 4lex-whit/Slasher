@@ -51,6 +51,12 @@ public class Game {
 		
 		
 		// prepare players
+		// pick slasher and survivors
+		int slasherIndex = new Random().nextInt(getPlayers().size());
+		slasher = players.get(slasherIndex);
+		survivors = players;
+		survivors.remove(slasherIndex);
+		
 		players.forEach(player -> {
 			// teleport
 			
@@ -66,12 +72,6 @@ public class Game {
 			player.setSaturation(0);
 			player.setFoodLevel(20);
 		});
-		
-		// pick slasher and survivors
-		int slasherIndex = new Random().nextInt(getPlayers().size());
-		slasher = players.get(slasherIndex);
-		survivors = players;
-		survivors.remove(slasherIndex);
 		
 		// give slasher weapon and effect
 		ItemStack weapon = new ItemStack(Material.GOLDEN_AXE, 1);
