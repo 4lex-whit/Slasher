@@ -10,6 +10,18 @@ public class Game {
 	private static Player slasher;
 	private static List<Player> survivors = new ArrayList<Player>();
 	
+	public static List<Player> getPlayers() {
+		return players;
+	}
+	
+	public static Player getSlasher() {
+		return slasher;
+	}
+	
+	public static List<Player> getSurvivors() {
+		return survivors;
+	}
+	
 	public static void start() {
 		// prepare map
 		
