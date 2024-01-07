@@ -36,6 +36,14 @@ public class Game {
 		return survivors;
 	}
 	
+	public static boolean isSlasherFrozen() {
+		return slasherFrozen;
+	}
+	
+	public static boolean isSurvivorsFrozen() {
+		return survivorsFrozen;
+	}
+	
 	public static void start() {
 		running = true;
 		
