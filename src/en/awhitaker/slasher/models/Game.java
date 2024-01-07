@@ -6,6 +6,7 @@ import java.util.List;
 import org.bukkit.entity.Player;
 
 public class Game {
+	private static boolean running;
 	private static List<Player> players = new ArrayList<Player>();
 	private static Player slasher;
 	private static List<Player> survivors = new ArrayList<Player>();
