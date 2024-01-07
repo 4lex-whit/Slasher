@@ -94,9 +94,10 @@ public class Game {
 		// release survivors
 		survivorsFrozen = false;
 		
-		// release slasher after 60 seconds
+		// release slasher & remove blindness after 60 seconds
 		Bukkit.getScheduler().runTaskLater(Slasher.getPlugin(Slasher.class), () -> {
 			slasherFrozen = false;
+			slasher.getActivePotionEffects().clear();
 		}, 1200);
 		
 		
