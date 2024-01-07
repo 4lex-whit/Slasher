@@ -57,6 +57,10 @@ public class Game {
 		survivors = players;
 		survivors.remove(slasherIndex);
 		
+		// freeze players
+		slasherFrozen = true;
+		survivorsFrozen = true;
+		
 		players.forEach(player -> {
 			// teleport
 			
