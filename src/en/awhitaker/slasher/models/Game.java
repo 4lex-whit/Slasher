@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -11,6 +12,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+
+import en.awhitaker.slasher.Slasher;
 
 public class Game {
 	private static boolean running;
@@ -88,6 +91,13 @@ public class Game {
 		
 		
 		// release players
+		// release survivors
+		survivorsFrozen = false;
+		
+		// release slasher after 60 seconds
+		Bukkit.getScheduler().runTaskLater(Slasher.getPlugin(Slasher.class), () -> {
+			slasherFrozen = false;
+		}, 1200);
 		
 		
 		// end game
