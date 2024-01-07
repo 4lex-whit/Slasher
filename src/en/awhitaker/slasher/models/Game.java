@@ -28,6 +28,8 @@ public class Game {
 	}
 	
 	public static void start() {
+		running = true;
+		
 		// prepare map
 		
 		// prepare players
