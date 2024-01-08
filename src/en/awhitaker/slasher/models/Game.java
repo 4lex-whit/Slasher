@@ -3,6 +3,7 @@ package en.awhitaker.slasher.models;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -17,9 +18,9 @@ import en.awhitaker.slasher.Slasher;
 
 public class Game {
 	private static boolean running;
-	private static List<Player> players = new ArrayList<Player>();
-	private static Player slasher;
-	private static List<Player> survivors = new ArrayList<Player>();
+	private static List<UUID> playerIds = new ArrayList<UUID>();
+	private static UUID slasherId;
+	private static List<UUID> survivorIds = new ArrayList<UUID>();
 	private static boolean slasherFrozen;
 	private static boolean survivorsFrozen;
 	
@@ -27,16 +28,16 @@ public class Game {
 		return running;
 	}
 	
-	public static List<Player> getPlayers() {
-		return players;
+	public static List<UUID> getPlayerIds() {
+		return playerIds;
 	}
 	
-	public static Player getSlasher() {
-		return slasher;
+	public static UUID getSlasherId() {
+		return slasherId;
 	}
 	
-	public static List<Player> getSurvivors() {
-		return survivors;
+	public static List<UUID> getSurvivorIds() {
+		return survivorIds;
 	}
 	
 	public static boolean isSlasherFrozen() {
@@ -55,16 +56,18 @@ public class Game {
 		
 		// prepare players
 		// pick slasher and survivors
-		int slasherIndex = new Random().nextInt(getPlayers().size());
-		slasher = players.get(slasherIndex);
-		survivors = players;
-		survivors.remove(slasherIndex);
+		int slasherIndex = new Random().nextInt(getPlayerIds().size());
+		slasherId = playerIds.get(slasherIndex);
+		survivorIds = playerIds;
+		survivorIds.remove(slasherIndex);
 		
 		// freeze players
 		slasherFrozen = true;
 		survivorsFrozen = true;
 		
-		players.forEach(player -> {
+		playerIds.forEach(uuid -> {
+			Player player = Bukkit.getPlayer(uuid);
+			
 			// teleport
 			
 			// set game mode
@@ -86,6 +89,7 @@ public class Game {
 		meta.setUnbreakable(true);
 		weapon.setItemMeta(meta);
 		
+		Player slasher = Bukkit.getPlayer(slasherId);
 		slasher.getInventory().setItem(0, weapon);
 		slasher.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, Integer.MAX_VALUE, Integer.MAX_VALUE, false, false, false));
 		
@@ -111,7 +115,9 @@ public class Game {
 		running = false;
 		
 		// players
-		players.forEach(player -> {
+		playerIds.forEach(uuid -> {
+			Player player = Bukkit.getPlayer(uuid);
+			
 			// teleport
 			
 			// set game mode
