@@ -14,6 +14,24 @@ public class SlasherCommand implements CommandExecutor {
 			return true;
 		}
 		
+		Player player = (Player) sender;
+		
+		// check args
+		if (args.length == 1) {
+			// check arg 1
+			
+			switch (args[0].toLowerCase()) {
+			case "join":
+				return true;
+			case "leave":
+				return true;
+			case "start":
+				return true;
+			case "stop":
+				return true;
+			}
+		}
+		
 		return false;
 	}
 }
