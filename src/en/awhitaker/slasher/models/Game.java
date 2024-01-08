@@ -106,4 +106,8 @@ public class Game {
 			
 		}, 12000);
 	}
+	
+	public static void end() {
+		
+	}
 }
