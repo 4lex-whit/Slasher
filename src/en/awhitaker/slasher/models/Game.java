@@ -108,6 +108,27 @@ public class Game {
 	}
 	
 	public static void end() {
+		running = false;
+		
+		// players
+		players.forEach(player -> {
+			// teleport
+			
+			// set game mode
+			player.setGameMode(GameMode.SURVIVAL);
+			
+			// clear inventory and effects
+			player.getInventory().clear();
+			player.getActivePotionEffects().clear();
+			
+			// set health & hunger
+			player.setHealth(20);
+			player.setSaturation(0);
+			player.setFoodLevel(20);
+		});
+		
+		
+		// announce winner
 		
 	}
 }
