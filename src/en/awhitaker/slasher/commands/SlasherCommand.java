@@ -1,11 +1,14 @@
 package en.awhitaker.slasher.commands;
 
+import java.util.List;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
-public class SlasherCommand implements CommandExecutor {
+public class SlasherCommand implements CommandExecutor, TabCompleter {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		// check sender
@@ -33,5 +36,10 @@ public class SlasherCommand implements CommandExecutor {
 		}
 		
 		return false;
+	}
+	
+	@Override
+	public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
+		return null;
 	}
 }
