@@ -1,5 +1,6 @@
 package en.awhitaker.slasher.commands;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.command.Command;
@@ -40,6 +41,16 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 	
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
-		return null;
+		List<String> options = new ArrayList<String>();
+		
+		// check args
+		if (args.length == 1) {
+			for (String option : List.of("join", "leave", "start", "stop")) {
+				if (option.toLowerCase().startsWith(args[0]))
+					options.add(option);
+			}
+		}
+		
+		return options;
 	}
 }
