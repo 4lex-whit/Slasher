@@ -1,8 +1,8 @@
-main: en.awhitaker.slasher.Slasher
-name: Slasher
-version: 0.0.0
+main: ${mainClass}
+name: ${name}
+version: ${version}
 
-description:
+description: ${description}
 api-version: 1.20
 load: POSTWORLD
 author: alex_whit
