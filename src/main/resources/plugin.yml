@@ -1,0 +1,9 @@
+main: ${mainClass}
+name: ${name}
+version: ${version}
+
+description: ${description}
+api-version: 1.20
+load: POSTWORLD
+author: alex_whit
+website: https://github.com/4lex-whit/Slasher
