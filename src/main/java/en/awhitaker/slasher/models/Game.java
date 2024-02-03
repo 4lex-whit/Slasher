@@ -54,6 +54,12 @@ public class Game {
 		Bukkit.getPlayer(uuid).sendMessage("You have joined Slasher.");
 	}
 	
+	public static void removePlayer(UUID uuid) {
+		playerIds.remove(uuid);
+		
+		Bukkit.getPlayer(uuid).sendMessage("You have left Slasher.");
+	}
+	
 	public static void start() {
 		running = true;
 		
