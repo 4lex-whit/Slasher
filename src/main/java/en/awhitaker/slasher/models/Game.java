@@ -59,9 +59,16 @@ public class Game {
 		
 		Bukkit.getPlayer(uuid).sendMessage("You have left Slasher.");
 		
-		// check if player was slasher
+		// check if player was slasher/survivor
 		if (uuid.equals(slasherId))
 			end();
+		else if (survivorIds.contains(uuid)) {
+			survivorIds.remove(uuid);
+			
+			// check for remaining survivors
+			if (survivorIds.isEmpty())
+				end();
+		}
 	}
 	
 	public static void start() {
