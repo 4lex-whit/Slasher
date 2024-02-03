@@ -58,6 +58,10 @@ public class Game {
 		playerIds.remove(uuid);
 		
 		Bukkit.getPlayer(uuid).sendMessage("You have left Slasher.");
+		
+		// check if player was slasher
+		if (uuid.equals(slasherId))
+			end();
 	}
 	
 	public static void start() {
