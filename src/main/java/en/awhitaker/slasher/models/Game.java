@@ -48,6 +48,12 @@ public class Game {
 		return survivorsFrozen;
 	}
 	
+	public static void addPlayer(UUID uuid) {
+		playerIds.add(uuid);
+		
+		Bukkit.getPlayer(uuid).sendMessage("You have joined Slasher.");
+	}
+	
 	public static void start() {
 		running = true;
 		
