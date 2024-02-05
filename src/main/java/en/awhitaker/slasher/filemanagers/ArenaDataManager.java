@@ -1,6 +1,8 @@
 package en.awhitaker.slasher.filemanagers;
 
 import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -23,5 +25,15 @@ public class ArenaDataManager {
 			configFile = new File(plugin.getDataFolder(), "arena-data.yml");
 		
 		arenaDataConfig = YamlConfiguration.loadConfiguration(configFile);
+		
+		// write default arena-data file
+		InputStream stream = plugin.getResource("arena-data.yml");
+		
+		// check stream
+		if (stream == null)
+			return;
+		
+		YamlConfiguration defaultConfig = YamlConfiguration.loadConfiguration(new InputStreamReader(stream));
+		arenaDataConfig.setDefaults(defaultConfig);
 	}
 }
