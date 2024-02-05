@@ -19,6 +19,7 @@ public class ArenaDataManager {
 	
 	public ArenaDataManager(Slasher plugin) {
 		this.plugin = plugin;
+		saveDefaultConfig();
 	}
 	
 	public void reloadConfig() {
