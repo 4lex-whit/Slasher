@@ -46,6 +46,8 @@ public class ArenaDataManager {
 	}
 	
 	public void saveConfig() {
-		
+		// check arenaDataConfig & configFile
+		if (arenaDataConfig == null || configFile == null)
+			return;
 	}
 }
