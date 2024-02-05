@@ -44,4 +44,8 @@ public class ArenaDataManager {
 		
 		return arenaDataConfig;
 	}
+	
+	public void saveConfig() {
+		
+	}
 }
