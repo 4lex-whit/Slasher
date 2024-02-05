@@ -1,8 +1,10 @@
 package en.awhitaker.slasher.filemanagers;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.logging.Level;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -49,5 +51,13 @@ public class ArenaDataManager {
 		// check arenaDataConfig & configFile
 		if (arenaDataConfig == null || configFile == null)
 			return;
+		
+		// save config
+		try {
+			getConfig().save(configFile);
+		} catch (IOException exception) {
+			plugin.getLogger().log(Level.SEVERE, String.format("Failed to save %s", configFile.toString()));
+			exception.printStackTrace();
+		}
 	}
 }
