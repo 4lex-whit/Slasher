@@ -60,4 +60,8 @@ public class ArenaDataManager {
 			exception.printStackTrace();
 		}
 	}
+	
+	public void saveDefaultConfig() {
+		
+	}
 }
