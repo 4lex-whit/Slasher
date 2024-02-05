@@ -74,6 +74,9 @@ public class ArenaDataManager {
 		}
 	}
 	
+	/**
+	 * Initialises the arena-data.yml file with default values.
+	 */
 	public void saveDefaultConfig() {
 		// check configFile
 		if (configFile == null)
