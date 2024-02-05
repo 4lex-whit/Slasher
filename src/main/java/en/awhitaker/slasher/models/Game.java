@@ -51,13 +51,13 @@ public class Game {
 	public static void addPlayer(UUID uuid) {
 		playerIds.add(uuid);
 		
-		Bukkit.getPlayer(uuid).sendMessage("You have joined Slasher.");
+		Bukkit.getPlayer(uuid).sendMessage("[Slasher] You have joined the game.");
 	}
 	
 	public static void removePlayer(UUID uuid) {
 		playerIds.remove(uuid);
 		
-		Bukkit.getPlayer(uuid).sendMessage("You have left Slasher.");
+		Bukkit.getPlayer(uuid).sendMessage("[Slasher] You have left the game.");
 		
 		// check if player was slasher/survivor
 		if (uuid.equals(slasherId))
