@@ -36,4 +36,8 @@ public class ArenaDataManager {
 		YamlConfiguration defaultConfig = YamlConfiguration.loadConfiguration(new InputStreamReader(stream));
 		arenaDataConfig.setDefaults(defaultConfig);
 	}
+	
+	public FileConfiguration getConfig() {
+		return arenaDataConfig;
+	}
 }
