@@ -55,6 +55,11 @@ public class ArenaDataManager {
 		return arenaDataConfig;
 	}
 	
+	/**
+	 * Saves the arena-data.yml file with new data. All comments not on the first line will be removed.<br/>
+	 * If the arena data config or config file are null, the procedure will return.<br/>
+	 * If the file cannot be saved, an error will be output.
+	 */
 	public void saveConfig() {
 		// check arenaDataConfig & configFile
 		if (arenaDataConfig == null || configFile == null)
