@@ -19,7 +19,7 @@ public class ArenaDataManager {
 		this.plugin = plugin;
 	}
 	
-	public void reload() {
+	public void reloadConfig() {
 		// check & set configFile and arenaDataConfig
 		if (configFile == null)
 			configFile = new File(plugin.getDataFolder(), "arena-data.yml");
