@@ -62,6 +62,8 @@ public class ArenaDataManager {
 	}
 	
 	public void saveDefaultConfig() {
-		
+		// check configFile
+		if (configFile == null)
+			configFile = new File(plugin.getDataFolder(), "arena-data.yml");
 	}
 }
