@@ -22,6 +22,9 @@ public class ArenaDataManager {
 		saveDefaultConfig();
 	}
 	
+	/**
+	 * Creates the arena-data.yml file if it does not exist and attempts to fix any syntax errors.
+	 */
 	public void reloadConfig() {
 		// check & set configFile and arenaDataConfig
 		if (configFile == null)
