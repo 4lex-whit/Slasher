@@ -38,6 +38,10 @@ public class ArenaDataManager {
 	}
 	
 	public FileConfiguration getConfig() {
+		// check dataConfig
+		if (arenaDataConfig == null)
+			reloadConfig();
+		
 		return arenaDataConfig;
 	}
 }
