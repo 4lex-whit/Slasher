@@ -43,6 +43,10 @@ public class ArenaDataManager {
 		arenaDataConfig.setDefaults(defaultConfig);
 	}
 	
+	/**
+	 * Checks if the arena data config exists and creates it if not.
+	 * @return the arena data config
+	 */
 	public FileConfiguration getConfig() {
 		// check dataConfig
 		if (arenaDataConfig == null)
