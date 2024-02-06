@@ -13,3 +13,38 @@ arena:
     z:
     pitch:
     yaw:
+  survivor1:
+    world:
+    x:
+    y:
+    z:
+    pitch:
+    yaw:
+  survivor2:
+    world:
+    x:
+    y:
+    z:
+    pitch:
+    yaw:
+  survivor3:
+    world:
+    x:
+    y:
+    z:
+    pitch:
+    yaw:
+  survivor4:
+    world:
+    x:
+    y:
+    z:
+    pitch:
+    yaw:
+  survivor5:
+    world:
+    x:
+    y:
+    z:
+    pitch:
+    yaw:
