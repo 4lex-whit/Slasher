@@ -36,6 +36,13 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 			}
 			
 			return false;
+		case 3:
+			// check arg 1
+			if (args[0].toLowerCase().matches("setspawn")) {
+				
+			}
+			
+			return false;
 		}
 		
 		return false;
@@ -48,6 +55,11 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 		// check args
 		if (args.length == 1) {
 			for (String option : List.of("join", "leave", "start", "stop")) {
+				if (option.toLowerCase().startsWith(args[0]))
+					options.add(option);
+			}
+		} else if (args.length == 3) {
+			for (String option : List.of("setspawn")) {
 				if (option.toLowerCase().startsWith(args[0]))
 					options.add(option);
 			}
