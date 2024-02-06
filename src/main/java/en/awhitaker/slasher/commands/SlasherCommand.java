@@ -35,7 +35,7 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 				return true;
 			}
 			
-			return false;
+			break;
 		case 3:
 			// check arg 1
 			if (args[0].toLowerCase().matches("setspawn")) {
@@ -59,7 +59,7 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 				}
 			}
 			
-			return false;
+			break;
 		}
 		
 		return false;
