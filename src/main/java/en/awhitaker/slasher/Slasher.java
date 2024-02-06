@@ -9,6 +9,6 @@ public class Slasher extends JavaPlugin {
 	
 	@Override
 	public void onEnable() {
-		
+		arenaDataManager = new ArenaDataManager(this);
 	}
 }
