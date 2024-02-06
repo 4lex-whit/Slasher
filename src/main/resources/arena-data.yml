@@ -5,3 +5,11 @@ lobby:
   z:
   pitch:
   yaw:
+arena:
+  slasher:
+    world:
+    x:
+    y:
+    z:
+    pitch:
+    yaw:
