@@ -39,7 +39,24 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 		case 3:
 			// check arg 1
 			if (args[0].toLowerCase().matches("setspawn")) {
-				
+				// check arg 2
+				if (args[1].toLowerCase().matches("slasher")) {
+					return true;
+				} else if (args[1].toLowerCase().startsWith("survivor")) {
+					// check survivor number
+					switch (args[1].toLowerCase().substring(8)) {
+					case "1":
+						return true;
+					case "2":
+						return true;
+					case "3":
+						return true;
+					case "4":
+						return true;
+					case "5":
+						return true;
+					}
+				}
 			}
 			
 			return false;
