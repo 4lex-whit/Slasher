@@ -21,9 +21,9 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 		Player player = (Player) sender;
 		
 		// check args
-		if (args.length == 1) {
+		switch (args.length) {
+		case 1:
 			// check arg 1
-			
 			switch (args[0].toLowerCase()) {
 			case "join":
 				return true;
@@ -34,6 +34,8 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 			case "stop":
 				return true;
 			}
+			
+			return false;
 		}
 		
 		return false;
