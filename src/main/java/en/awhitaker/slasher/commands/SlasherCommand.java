@@ -3,10 +3,12 @@ package en.awhitaker.slasher.commands;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import en.awhitaker.slasher.Slasher;
@@ -49,6 +51,19 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 			if (args[0].toLowerCase().matches("setspawn")) {
 				// check arg 2
 				if (args[1].toLowerCase().matches("slasher")) {
+					// save location data to arena-data.yml
+					FileConfiguration arenaData = plugin.arenaDataManager.getConfig();
+					Location location = player.getLocation();
+					
+					arenaData.set("arena.slasher.world", location.getWorld().getUID());
+					arenaData.set("arena.slasher.x", location.getX());
+					arenaData.set("arena.slasher.y", location.getY());
+					arenaData.set("arena.slasher.z", location.getZ());
+					arenaData.set("arena.slasher.pitch", location.getPitch());
+					arenaData.set("arena.slasher.yaw", location.getYaw());
+					
+					plugin.arenaDataManager.saveConfig();
+					
 					return true;
 				} else if (args[1].toLowerCase().startsWith("survivor")) {
 					// check survivor number
