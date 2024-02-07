@@ -9,7 +9,15 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
+import en.awhitaker.slasher.Slasher;
+
 public class SlasherCommand implements CommandExecutor, TabCompleter {
+	private Slasher plugin;
+	
+	public SlasherCommand(Slasher plugin) {
+		this.plugin = plugin;
+	}
+	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		// check sender
