@@ -1,3 +1,10 @@
+hub:
+  world:
+  x:
+  y:
+  z:
+  pitch:
+  yaw:
 lobby:
   world:
   x:
