@@ -36,7 +36,7 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 			}
 			
 			break;
-		case 3:
+		case 2:
 			// check arg 1
 			if (args[0].toLowerCase().matches("setspawn")) {
 				// check arg 2
