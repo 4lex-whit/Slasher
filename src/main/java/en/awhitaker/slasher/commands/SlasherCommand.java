@@ -79,10 +79,13 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 			
 			break;
 		case 2:
-			for (String option : List.of("slasher", "survivor1", "survivor2", "survivor3", "survivor4", "survivor5"))
-				// check arg 2
-				if (option.startsWith(args[1].toLowerCase()))
-					options.add(option);
+			// check arg 1
+			if (args[0].toLowerCase().matches("setspawn")) {
+				for (String option : List.of("slasher", "survivor1", "survivor2", "survivor3", "survivor4", "survivor5"))
+					// check arg 2
+					if (option.startsWith(args[1].toLowerCase()))
+						options.add(option);
+			}
 			
 			break;
 		}
