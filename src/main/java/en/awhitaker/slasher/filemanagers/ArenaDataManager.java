@@ -15,7 +15,7 @@ public class ArenaDataManager {
 	private Slasher plugin;
 	
 	private FileConfiguration arenaDataConfig = null;
-	private File configFile = null;
+	private File arenaDataFile = null;
 	
 	public ArenaDataManager(Slasher plugin) {
 		this.plugin = plugin;
@@ -26,11 +26,11 @@ public class ArenaDataManager {
 	 * Creates the arena-data.yml file if it does not exist and attempts to fix any syntax errors.
 	 */
 	public void reloadConfig() {
-		// check & set configFile and arenaDataConfig
-		if (configFile == null)
-			configFile = new File(plugin.getDataFolder(), "arena-data.yml");
+		// check & set arenaDataFile and arenaDataConfig
+		if (arenaDataFile == null)
+			arenaDataFile = new File(plugin.getDataFolder(), "arena-data.yml");
 		
-		arenaDataConfig = YamlConfiguration.loadConfiguration(configFile);
+		arenaDataConfig = YamlConfiguration.loadConfiguration(arenaDataFile);
 		
 		// write default arena-data file
 		InputStream stream = plugin.getResource("arena-data.yml");
@@ -61,15 +61,15 @@ public class ArenaDataManager {
 	 * If the file cannot be saved, an error will be output.
 	 */
 	public void saveConfig() {
-		// check arenaDataConfig & configFile
-		if (arenaDataConfig == null || configFile == null)
+		// check arenaDataConfig & arenaDataFile
+		if (arenaDataConfig == null || arenaDataFile == null)
 			return;
 		
 		// save config
 		try {
-			getConfig().save(configFile);
+			getConfig().save(arenaDataFile);
 		} catch (IOException exception) {
-			plugin.getLogger().log(Level.SEVERE, String.format("Failed to save %s", configFile.toString()));
+			plugin.getLogger().log(Level.SEVERE, String.format("Failed to save %s", arenaDataFile.toString()));
 			exception.printStackTrace();
 		}
 	}
@@ -78,12 +78,12 @@ public class ArenaDataManager {
 	 * Initialises the arena-data.yml file with default values.
 	 */
 	public void saveDefaultConfig() {
-		// check configFile
-		if (configFile == null)
-			configFile = new File(plugin.getDataFolder(), "arena-data.yml");
+		// check arenaDataFile
+		if (arenaDataFile == null)
+			arenaDataFile = new File(plugin.getDataFolder(), "arena-data.yml");
 		
 		// save default arena-data file
-		if (!configFile.exists())
+		if (!arenaDataFile.exists())
 			plugin.saveResource("arena-data.yml", false);
 	}
 }
