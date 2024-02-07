@@ -49,22 +49,11 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 		case 2:
 			// check arg 1
 			if (args[0].toLowerCase().matches("setspawn")) {
+				String path = "arena.";
+				
 				// check arg 2
 				if (args[1].toLowerCase().matches("slasher")) {
-					// save location data to arena-data.yml
-					FileConfiguration arenaData = plugin.arenaDataManager.getConfig();
-					Location location = player.getLocation();
-					
-					arenaData.set("arena.slasher.world", location.getWorld().getUID());
-					arenaData.set("arena.slasher.x", location.getX());
-					arenaData.set("arena.slasher.y", location.getY());
-					arenaData.set("arena.slasher.z", location.getZ());
-					arenaData.set("arena.slasher.pitch", location.getPitch());
-					arenaData.set("arena.slasher.yaw", location.getYaw());
-					
-					plugin.arenaDataManager.saveConfig();
-					
-					return true;
+					path += "slasher.";
 				} else if (args[1].toLowerCase().startsWith("survivor")) {
 					// check survivor number
 					switch (args[1].toLowerCase().substring(8)) {
@@ -78,8 +67,27 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 						return true;
 					case "5":
 						return true;
+					default:
+						return false;
 					}
-				}
+				} else // invalid arg 2
+					break;
+				
+				// save location data to arena-data.yml
+				FileConfiguration arenaData = plugin.arenaDataManager.getConfig();
+				Location location = player.getLocation();
+				
+				arenaData.set(path + "world", location.getWorld().getUID());
+				arenaData.set(path + "x", location.getX());
+				arenaData.set(path + "y", location.getY());
+				arenaData.set(path + "z", location.getZ());
+				arenaData.set(path + "pitch", location.getPitch());
+				arenaData.set(path + "yaw", location.getYaw());
+				
+				plugin.arenaDataManager.saveConfig();
+				
+				// send message
+				player.sendMessage(String.format("Successfully set spawn for %s.", args[1].toLowerCase()));
 			}
 			
 			break;
