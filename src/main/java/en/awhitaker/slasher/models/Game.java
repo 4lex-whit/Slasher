@@ -17,6 +17,11 @@ import org.bukkit.potion.PotionEffectType;
 import en.awhitaker.slasher.Slasher;
 
 public class Game {
+	private Slasher plugin;
+	public Game(Slasher plugin) {
+		this.plugin = plugin;
+	}
+	
 	private static boolean running;
 	private static List<UUID> playerIds = new ArrayList<UUID>();
 	private static UUID slasherId;
