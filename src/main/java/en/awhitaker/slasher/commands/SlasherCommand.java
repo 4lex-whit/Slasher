@@ -48,7 +48,7 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 			break;
 		case 2:
 			// check arg 1
-			if (args[0].toLowerCase().matches("setspawn")) {
+			if (args[0].equalsIgnoreCase("setspawn")) {
 				// check arg 2 & set path
 				String path = "";
 				
@@ -99,7 +99,7 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 			break;
 		case 2:
 			// check arg 1
-			if (args[0].toLowerCase().matches("setspawn")) {
+			if (args[0].equalsIgnoreCase("setspawn")) {
 				for (String option : List.of("hub", "slasher", "survivor1", "survivor2", "survivor3", "survivor4", "survivor5"))
 					// check arg 2
 					if (option.startsWith(args[1].toLowerCase()))
