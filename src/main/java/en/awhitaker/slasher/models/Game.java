@@ -91,7 +91,7 @@ public class Game {
 		slasherFrozen = true;
 		survivorsFrozen = true;
 		
-		playerIds.forEach(uuid -> {
+		for (UUID uuid : playerIds) {
 			Player player = Bukkit.getPlayer(uuid);
 			
 			// teleport
@@ -107,7 +107,7 @@ public class Game {
 			player.setHealth(20);
 			player.setSaturation(0);
 			player.setFoodLevel(20);
-		});
+		}
 		
 		// give slasher weapon and effect
 		ItemStack weapon = new ItemStack(Material.GOLDEN_AXE, 1);
