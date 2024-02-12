@@ -49,14 +49,19 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 		case 2:
 			// check arg 1
 			if (args[0].toLowerCase().matches("setspawn")) {
-				// check arg 2
-				if (!List.of("slasher", "survivor1", "survivor2", "survivor3", "survivor4", "survivor5").contains(args[1].toLowerCase())) // invalid arg 2
+				// check arg 2 & set path
+				String path = "";
+				
+				if (args[1].equalsIgnoreCase("hub"))
+					path = "hub.";
+				else if (List.of("slasher", "survivor1", "survivor2", "survivor3", "survivor4", "survivor5").contains(args[1].toLowerCase()))
+					path = String.format("arena.%s.", args[1].toLowerCase());
+				else
 					break;
 				
 				// save location data to arena-data.yml
 				FileConfiguration arenaData = plugin.arenaDataManager.getConfig();
 				Location location = player.getLocation();
-				String path = String.format("arena.%s.", args[1].toLowerCase());
 				
 				arenaData.set(path + "world", location.getWorld().getUID().toString());
 				arenaData.set(path + "x", location.getX());
@@ -95,7 +100,7 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 		case 2:
 			// check arg 1
 			if (args[0].toLowerCase().matches("setspawn")) {
-				for (String option : List.of("slasher", "survivor1", "survivor2", "survivor3", "survivor4", "survivor5"))
+				for (String option : List.of("hub", "slasher", "survivor1", "survivor2", "survivor3", "survivor4", "survivor5"))
 					// check arg 2
 					if (option.startsWith(args[1].toLowerCase()))
 						options.add(option);
