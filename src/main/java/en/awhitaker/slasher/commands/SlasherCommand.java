@@ -54,6 +54,8 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 				
 				if (args[1].equalsIgnoreCase("hub"))
 					path = "hub.";
+				else if (args[1].equalsIgnoreCase("lobby"))
+					path = "lobby.";
 				else if (List.of("slasher", "survivor1", "survivor2", "survivor3", "survivor4", "survivor5").contains(args[1].toLowerCase()))
 					path = String.format("arena.%s.", args[1].toLowerCase());
 				else
