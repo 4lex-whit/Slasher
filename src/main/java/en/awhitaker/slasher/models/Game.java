@@ -7,7 +7,9 @@ import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -91,10 +93,28 @@ public class Game {
 		slasherFrozen = true;
 		survivorsFrozen = true;
 		
+		FileConfiguration arenaData = plugin.arenaDataManager.getConfig();
+		
 		for (UUID uuid : playerIds) {
 			Player player = Bukkit.getPlayer(uuid);
 			
+			// set path
+			String path = "arena.";
+			
+			if (uuid.equals(slasherId))
+				path += "slasher.";
+			else
+				path += String.format("survivor%s.", survivorIds.indexOf(uuid) + 1);
+			
 			// teleport
+			player.teleport(new Location(
+					Bukkit.getWorld(UUID.fromString(arenaData.getString(path + "world"))),
+					arenaData.getDouble(path + "x"),
+					arenaData.getDouble(path + "y"),
+					arenaData.getDouble(path + "z"),
+					(float) arenaData.getDouble(path + "yaw"),
+					(float) arenaData.getDouble(path + "pitch")
+			));
 			
 			// set game mode
 			player.setGameMode(GameMode.SURVIVAL);
