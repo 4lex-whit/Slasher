@@ -123,8 +123,6 @@ public class Game {
 		survivorsFrozen = true;
 		
 		for (UUID uuid : playerIds) {
-			Player player = Bukkit.getPlayer(uuid);
-			
 			// set path
 			String path = "arena.";
 			
@@ -134,19 +132,10 @@ public class Game {
 				path += "survivor" + (survivorIds.indexOf(uuid) + 1);
 			
 			// teleport
-			player.teleport(getSpawn(path));
+			Bukkit.getPlayer(uuid).teleport(getSpawn(path));
 			
-			// set game mode
-			player.setGameMode(GameMode.SURVIVAL);
-			
-			// clear inventory and effects
-			player.getInventory().clear();
-			player.getActivePotionEffects().clear();
-			
-			// set health & hunger
-			player.setHealth(20);
-			player.setSaturation(0);
-			player.setFoodLevel(20);
+			// reset
+			resetPlayer(uuid);
 		}
 		
 		// give slasher weapon and effect
@@ -182,22 +171,11 @@ public class Game {
 		
 		// players
 		playerIds.forEach(uuid -> {
-			Player player = Bukkit.getPlayer(uuid);
-			
 			// teleport
-			player.teleport(getSpawn("lobby"));
+			Bukkit.getPlayer(uuid).teleport(getSpawn("lobby"));
 			
-			// set game mode
-			player.setGameMode(GameMode.SURVIVAL);
-			
-			// clear inventory and effects
-			player.getInventory().clear();
-			player.getActivePotionEffects().clear();
-			
-			// set health & hunger
-			player.setHealth(20);
-			player.setSaturation(0);
-			player.setFoodLevel(20);
+			// reset
+			resetPlayer(uuid);
 		});
 		
 		
