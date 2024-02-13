@@ -75,7 +75,7 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 				plugin.arenaDataManager.saveConfig();
 				
 				// send message
-				player.sendMessage(String.format("Successfully set spawn for %s.", args[1].toLowerCase()));
+				player.sendMessage(String.format("[Slasher] Successfully set spawn for %s.", args[1].toLowerCase()));
 				
 				return true;
 			}
