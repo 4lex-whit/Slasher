@@ -106,8 +106,6 @@ public class Game {
 		slasherFrozen = true;
 		survivorsFrozen = true;
 		
-		FileConfiguration arenaData = plugin.arenaDataManager.getConfig();
-		
 		for (UUID uuid : playerIds) {
 			Player player = Bukkit.getPlayer(uuid);
 			
@@ -120,14 +118,7 @@ public class Game {
 				path += String.format("survivor%s.", survivorIds.indexOf(uuid) + 1);
 			
 			// teleport
-			player.teleport(new Location(
-					Bukkit.getWorld(UUID.fromString(arenaData.getString(path + "world"))),
-					arenaData.getDouble(path + "x"),
-					arenaData.getDouble(path + "y"),
-					arenaData.getDouble(path + "z"),
-					(float) arenaData.getDouble(path + "yaw"),
-					(float) arenaData.getDouble(path + "pitch")
-			));
+			player.teleport(getSpawn(path));
 			
 			// set game mode
 			player.setGameMode(GameMode.SURVIVAL);
@@ -174,20 +165,11 @@ public class Game {
 		running = false;
 		
 		// players
-		FileConfiguration arenaData = plugin.arenaDataManager.getConfig();
-		
 		playerIds.forEach(uuid -> {
 			Player player = Bukkit.getPlayer(uuid);
 			
 			// teleport
-			player.teleport(new Location(
-					Bukkit.getWorld(UUID.fromString(arenaData.getString("lobby.world"))),
-					arenaData.getDouble("lobby.x"),
-					arenaData.getDouble("lobby.y"),
-					arenaData.getDouble("lobby.z"),
-					(float) arenaData.getDouble("lobby.yaw"),
-					(float) arenaData.getDouble("lobby.pitch")
-			));
+			player.teleport(getSpawn("lobby."));
 			
 			// set game mode
 			player.setGameMode(GameMode.SURVIVAL);
