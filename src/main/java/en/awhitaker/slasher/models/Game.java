@@ -57,12 +57,12 @@ public class Game {
 		FileConfiguration arenaData = plugin.arenaDataManager.getConfig();
 		
 		return new Location(
-				Bukkit.getWorld(UUID.fromString(arenaData.getString(path + "world"))),
-				arenaData.getDouble("x"),
-				arenaData.getDouble(path + "y"),
-				arenaData.getDouble(path + "z"),
-				(float) arenaData.getDouble(path + "yaw"),
-				(float) arenaData.getDouble(path + "pitch")
+				Bukkit.getWorld(UUID.fromString(arenaData.getString(path + ".world"))),
+				arenaData.getDouble(".x"),
+				arenaData.getDouble(path + ".y"),
+				arenaData.getDouble(path + ".z"),
+				(float) arenaData.getDouble(path + ".yaw"),
+				(float) arenaData.getDouble(path + ".pitch")
 		);
 	}
 	
@@ -113,9 +113,9 @@ public class Game {
 			String path = "arena.";
 			
 			if (uuid.equals(slasherId))
-				path += "slasher.";
+				path += "slasher";
 			else
-				path += String.format("survivor%s.", survivorIds.indexOf(uuid) + 1);
+				path += "survivor" + (survivorIds.indexOf(uuid) + 1);
 			
 			// teleport
 			player.teleport(getSpawn(path));
@@ -169,7 +169,7 @@ public class Game {
 			Player player = Bukkit.getPlayer(uuid);
 			
 			// teleport
-			player.teleport(getSpawn("lobby."));
+			player.teleport(getSpawn("lobby"));
 			
 			// set game mode
 			player.setGameMode(GameMode.SURVIVAL);
