@@ -161,10 +161,20 @@ public class Game {
 		running = false;
 		
 		// players
+		FileConfiguration arenaData = plugin.arenaDataManager.getConfig();
+		
 		playerIds.forEach(uuid -> {
 			Player player = Bukkit.getPlayer(uuid);
 			
 			// teleport
+			player.teleport(new Location(
+					Bukkit.getWorld(UUID.fromString(arenaData.getString("lobby.world"))),
+					arenaData.getDouble("lobby.x"),
+					arenaData.getDouble("lobby.y"),
+					arenaData.getDouble("lobby.z"),
+					(float) arenaData.getDouble("lobby.yaw"),
+					(float) arenaData.getDouble("lobby.pitch")
+			));
 			
 			// set game mode
 			player.setGameMode(GameMode.SURVIVAL);
