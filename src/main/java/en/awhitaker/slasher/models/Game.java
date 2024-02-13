@@ -53,6 +53,19 @@ public class Game {
 		return survivorsFrozen;
 	}
 	
+	public static Location getSpawn(String path) {
+		FileConfiguration arenaData = plugin.arenaDataManager.getConfig();
+		
+		return new Location(
+				Bukkit.getWorld(UUID.fromString(arenaData.getString(path + "world"))),
+				arenaData.getDouble("x"),
+				arenaData.getDouble(path + "y"),
+				arenaData.getDouble(path + "z"),
+				(float) arenaData.getDouble(path + "yaw"),
+				(float) arenaData.getDouble(path + "pitch")
+		);
+	}
+	
 	public static void addPlayer(UUID uuid) {
 		playerIds.add(uuid);
 		
