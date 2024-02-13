@@ -66,6 +66,22 @@ public class Game {
 		);
 	}
 	
+	public static void resetPlayer(UUID uuid) {
+		Player player = Bukkit.getPlayer(uuid);
+		
+		// set game mode
+		player.setGameMode(GameMode.SURVIVAL);
+		
+		// clear inventory and effects
+		player.getInventory().clear();
+		player.getActivePotionEffects().clear();
+		
+		// set health & hunger
+		player.setHealth(20);
+		player.setSaturation(0);
+		player.setFoodLevel(20);
+	}
+	
 	public static void addPlayer(UUID uuid) {
 		playerIds.add(uuid);
 		
