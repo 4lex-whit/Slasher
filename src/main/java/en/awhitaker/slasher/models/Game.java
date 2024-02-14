@@ -58,7 +58,7 @@ public class Game {
 		
 		return new Location(
 				Bukkit.getWorld(UUID.fromString(arenaData.getString(path + ".world"))),
-				arenaData.getDouble(".x"),
+				arenaData.getDouble(path + ".x"),
 				arenaData.getDouble(path + ".y"),
 				arenaData.getDouble(path + ".z"),
 				(float) arenaData.getDouble(path + ".yaw"),
