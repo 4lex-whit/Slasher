@@ -85,6 +85,13 @@ public class Game {
 	public static void addPlayer(UUID uuid) {
 		playerIds.add(uuid);
 		
+		// teleport
+		Bukkit.getPlayer(uuid).teleport(getSpawn("lobby"));
+		
+		// reset
+		resetPlayer(uuid);
+		
+		// send message
 		Bukkit.getPlayer(uuid).sendMessage("[Slasher] You have joined the game.");
 	}
 	
