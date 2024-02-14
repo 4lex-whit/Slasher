@@ -83,31 +83,44 @@ public class Game {
 	}
 	
 	public static void addPlayer(UUID uuid) {
+		// add to list
 		playerIds.add(uuid);
 		
+		Player player = Bukkit.getPlayer(uuid);
+		
 		// teleport
-		Bukkit.getPlayer(uuid).teleport(getSpawn("lobby"));
+		player.teleport(getSpawn("lobby"));
 		
 		// reset
 		resetPlayer(uuid);
 		
 		// send message
-		Bukkit.getPlayer(uuid).sendMessage("[Slasher] You have joined the game.");
+		player.sendMessage("[Slasher] You have joined the game.");
 	}
 	
 	public static void removePlayer(UUID uuid) {
+		// remove from list
 		playerIds.remove(uuid);
 		
+		Player player = Bukkit.getPlayer(uuid);
+		
+		// teleport
+		player.teleport(getSpawn("hub"));
+		
+		// reset
+		resetPlayer(uuid);
+		
+		// send message
 		Bukkit.getPlayer(uuid).sendMessage("[Slasher] You have left the game.");
 		
 		// check if player was slasher/survivor
-		if (uuid.equals(slasherId))
+		if (uuid.equals(slasherId)) // player was slasher
 			end();
-		else if (survivorIds.contains(uuid)) {
+		else if (survivorIds.contains(uuid)) { // player was a survivor
 			survivorIds.remove(uuid);
 			
 			// check for remaining survivors
-			if (survivorIds.isEmpty())
+			if (survivorIds.isEmpty()) // player was only survivor
 				end();
 		}
 	}
