@@ -60,7 +60,7 @@ public class Game {
 	 */
 	public static Location getSpawn(String path) {
 		FileConfiguration arenaData = plugin.arenaDataManager.getConfig();
-		plugin.getConfig();
+		
 		return new Location(
 				Bukkit.getWorld(UUID.fromString(arenaData.getString(path + ".world"))),
 				arenaData.getDouble(path + ".x"),
