@@ -53,9 +53,14 @@ public class Game {
 		return survivorsFrozen;
 	}
 	
+	/**
+	 * Gets a specified spawn from the "arena-data.yml" file
+	 * @param path the string to the desired spawn data in the "arena-data.yml" file
+	 * @return the {@link org.bukkit.Location Location} of the spawn
+	 */
 	public static Location getSpawn(String path) {
 		FileConfiguration arenaData = plugin.arenaDataManager.getConfig();
-		
+		plugin.getConfig();
 		return new Location(
 				Bukkit.getWorld(UUID.fromString(arenaData.getString(path + ".world"))),
 				arenaData.getDouble(path + ".x"),
