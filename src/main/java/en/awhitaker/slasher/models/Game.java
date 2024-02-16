@@ -54,7 +54,7 @@ public class Game {
 	}
 	
 	/**
-	 * Gets a specified spawn from the "arena-data.yml" file
+	 * Gets a specified spawn from the "arena-data.yml" file.
 	 * @param path the string to the desired spawn data in the "arena-data.yml" file
 	 * @return the {@link org.bukkit.Location Location} of the spawn
 	 */
