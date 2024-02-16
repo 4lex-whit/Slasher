@@ -13,6 +13,6 @@ public class Slasher extends JavaPlugin {
 	public void onEnable() {
 		arenaDataManager = new ArenaDataManager(this);
 		
-		Bukkit.getServer().getPluginManager().registerEvents(new PlayerMoveListener(this), this);
+		Bukkit.getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
 	}
 }
