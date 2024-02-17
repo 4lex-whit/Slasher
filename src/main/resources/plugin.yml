@@ -18,3 +18,8 @@ permissions:
   slasher.player:
     description: Allows a player to join and leave the game
     default: true
+  slasher.admin:
+    description: Allows a player to use all Slasher commands
+    default: op
+    children:
+      slasher.player: true
