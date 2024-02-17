@@ -13,3 +13,8 @@ commands:
     description:
     permission:
     usage: "Usage: /<command> <join|leave|start|stop>"
+
+permissions:
+  slasher.player:
+    description: Allows a player to join and leave the game
+    default: true
