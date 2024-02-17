@@ -10,8 +10,8 @@ website: https://github.com/4lex-whit/Slasher
 
 commands:
   slasher:
-    description:
-    permission:
+    description: Manages the Slasher game
+    permission: slasher
     usage: "Usage: /<command> <join|leave|start|stop>"
 
 permissions:
