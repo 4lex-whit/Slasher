@@ -99,6 +99,11 @@ public class Game {
 		player.setFoodLevel(20);
 	}
 	
+	/**
+	 * Adds a specified player to the game.<br/>
+	 * The player will be teleported to the lobby and sent a message to say they have joined the game.
+	 * @param uuid the {@link java.util.UUID UUID} of the player
+	 */
 	public static void addPlayer(UUID uuid) {
 		// add to list
 		playerIds.add(uuid);
