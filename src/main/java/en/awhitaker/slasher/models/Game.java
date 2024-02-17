@@ -120,6 +120,12 @@ public class Game {
 		player.sendMessage("[Slasher] You have joined the game.");
 	}
 	
+	/**
+	 * Removes a specified player from the game.<br/>
+	 * The player will be teleported to the hub and sent a message to say they have left the game.<br/>
+	 * If the player is the Slasher or only remaining Survivor, the game will end.
+	 * @param uuid the {@link java.util.UUID UUID} of the player
+	 */
 	public static void removePlayer(UUID uuid) {
 		// remove from list
 		playerIds.remove(uuid);
