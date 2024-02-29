@@ -7,6 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import en.awhitaker.slasher.models.Game;
+import en.awhitaker.slasher.utils.PlayerUtil;
 
 public class PlayerQuitListener implements Listener {
 	@EventHandler
@@ -14,7 +15,7 @@ public class PlayerQuitListener implements Listener {
 		UUID uuid = event.getPlayer().getUniqueId();
 		
 		// check if player is playing
-		if (Game.getPlayerIds().contains(uuid))
+		if (PlayerUtil.isPlayerPlaying(uuid))
 			Game.removePlayer(uuid);
 	}
 }
