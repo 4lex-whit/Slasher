@@ -1,7 +1,5 @@
 package en.awhitaker.slasher.listeners;
 
-import java.util.UUID;
-
 import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,10 +10,8 @@ import en.awhitaker.slasher.utils.PlayerUtil;
 public class PlayerMoveListener implements Listener {
 	@EventHandler
 	public void onPlayerMove(PlayerMoveEvent event) {
-		UUID uuid = event.getPlayer().getUniqueId();
-		
 		// check if player is frozen
-		if (PlayerUtil.isPlayerFrozen(uuid)) {
+		if (PlayerUtil.isPlayerFrozen(event.getPlayer().getUniqueId())) {
 			Location from = event.getFrom();
 			Location to = event.getTo();
 			
