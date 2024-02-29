@@ -16,4 +16,16 @@ public class PlayerUtil {
 			return true;
 		return false;
 	}
+	
+	/**
+	 * Checks if the specified player is the slasher.
+	 * @param uuid the {@link java.util.UUID UUID} of the player
+	 * @return {@code true} if the player is the slasher<br/>
+	 *         {@code false} otherwise
+	 */
+	public boolean isPlayerSlasher(UUID uuid) {
+		if (uuid.equals(Game.getSlasherId()))
+			return true;
+		return false;
+	}
 }
