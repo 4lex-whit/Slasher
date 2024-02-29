@@ -134,10 +134,16 @@ public class Game {
 	 * @param uuid the {@link java.util.UUID UUID} of the player
 	 */
 	public static void removePlayer(UUID uuid) {
+		Player player = Bukkit.getPlayer(uuid);
+		
+		// check player
+		if (!PlayerUtil.isPlayerPlaying(uuid)) {
+			player.sendMessage("[Slasher] You are not in the game.");
+			return;
+		}
+		
 		// remove from list
 		playerIds.remove(uuid);
-		
-		Player player = Bukkit.getPlayer(uuid);
 		
 		// teleport
 		player.teleport(getSpawn("hub"));
