@@ -34,7 +34,7 @@ public class Game {
 	}
 	
 	public static List<UUID> getPlayerIds() {
-		return playerIds;
+		return new ArrayList<UUID>(playerIds);
 	}
 	
 	public static UUID getSlasherId() {
@@ -42,7 +42,7 @@ public class Game {
 	}
 	
 	public static List<UUID> getSurvivorIds() {
-		return survivorIds;
+		return new ArrayList<UUID>(survivorIds);
 	}
 	
 	public static boolean isSlasherFrozen() {
@@ -161,7 +161,7 @@ public class Game {
 		
 		// prepare players
 		// pick slasher and survivors
-		int slasherIndex = new Random().nextInt(getPlayerIds().size());
+		int slasherIndex = new Random().nextInt(playerIds.size());
 		slasherId = playerIds.get(slasherIndex);
 		survivorIds = playerIds;
 		survivorIds.remove(slasherIndex);
