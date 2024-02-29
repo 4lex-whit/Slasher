@@ -8,8 +8,14 @@ public class PlayerUtil {
 	/**
 	 * Checks if the specified player is in the Slasher game.
 	 * @param uuid the {@link java.util.UUID UUID} of the player
-	 * @return {@code true} if the player is playing<br/>
-	 *         {@code false} otherwise
+	 * @return {@code true}:
+	 *         <ul>
+	 *           <li>if the player is playing</li>
+	 *         </ul>
+	 *         {@code false}:
+	 *         <ul>
+	 *           <li>otherwise</li>
+	 *         </ul>
 	 */
 	public boolean isPlayerPlaying(UUID uuid) {
 		if (Game.getPlayerIds().contains(uuid))
@@ -20,8 +26,14 @@ public class PlayerUtil {
 	/**
 	 * Checks if the specified player is the slasher.
 	 * @param uuid the {@link java.util.UUID UUID} of the player
-	 * @return {@code true} if the player is the slasher<br/>
-	 *         {@code false} otherwise
+	 * @return {@code true}:
+	 *         <ul>
+	 *           <li>if the player is the slasher</li>
+	 *         </ul>
+	 *         {@code false}:
+	 *         <ul>
+	 *           <li>otherwise</li>
+	 *         </ul>
 	 */
 	public boolean isPlayerSlasher(UUID uuid) {
 		if (uuid.equals(Game.getSlasherId()))
@@ -32,8 +44,14 @@ public class PlayerUtil {
 	/**
 	 * Checks if the specified player is a survivor.
 	 * @param uuid the {@link java.util.UUID UUID} of the player
-	 * @return {@code true} if the player is a survivor<br/>
-	 *         {@code false} otherwise
+	 * @return {@code true}:
+	 *         <ul>
+	 *           <li>if the player is a survivor</li>
+	 *         </ul>
+	 *         {@code false}:
+	 *         <ul>
+	 *           <li>otherwise</li>
+	 *         </ul>
 	 */
 	public boolean isPlayerSurvivor(UUID uuid) {
 		if (Game.getSurvivorIds().contains(uuid))
