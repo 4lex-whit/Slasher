@@ -18,6 +18,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import en.awhitaker.slasher.Slasher;
+import en.awhitaker.slasher.utils.PlayerUtil;
 
 public class Game {
 	private static Slasher plugin = JavaPlugin.getPlugin(Slasher.class);
@@ -105,10 +106,16 @@ public class Game {
 	 * @param uuid the {@link java.util.UUID UUID} of the player
 	 */
 	public static void addPlayer(UUID uuid) {
+		Player player = Bukkit.getPlayer(uuid);
+		
+		// check player
+		if (PlayerUtil.isPlayerPlaying(uuid)) {
+			player.sendMessage("[Slasher] You are already in the game.");
+			return;
+		}
+		
 		// add to list
 		playerIds.add(uuid);
-		
-		Player player = Bukkit.getPlayer(uuid);
 		
 		// teleport
 		player.teleport(getSpawn("lobby"));
