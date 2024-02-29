@@ -73,14 +73,14 @@ public class Game {
 	
 	/**
 	 * Resets a specified player to an 'initial' state.
-	 * <list>
+	 * <ul>
 	 *   <li>Sets gamemode to survival</li>
 	 *   <li>Clears inventory</li>
 	 *   <li>Clears potion effects</li>
 	 *   <li>Sets health to 20 (max)</li>
 	 *   <li>Sets saturation to 0</li>
 	 *   <li>Sets food level to 20 (max)</li>
-	 * </list>
+	 * </ul>
 	 * @param uuid the {@link java.util.UUID UUID} of the player
 	 */
 	public static void resetPlayer(UUID uuid) {
