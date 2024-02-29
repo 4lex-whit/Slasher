@@ -17,7 +17,7 @@ public class PlayerUtil {
 	 *           <li>otherwise</li>
 	 *         </ul>
 	 */
-	public boolean isPlayerPlaying(UUID uuid) {
+	public static boolean isPlayerPlaying(UUID uuid) {
 		if (Game.getPlayerIds().contains(uuid))
 			return true;
 		return false;
@@ -35,7 +35,7 @@ public class PlayerUtil {
 	 *           <li>otherwise</li>
 	 *         </ul>
 	 */
-	public boolean isPlayerSlasher(UUID uuid) {
+	public static boolean isPlayerSlasher(UUID uuid) {
 		if (uuid.equals(Game.getSlasherId()))
 			return true;
 		return false;
@@ -53,7 +53,7 @@ public class PlayerUtil {
 	 *           <li>otherwise</li>
 	 *         </ul>
 	 */
-	public boolean isPlayerSurvivor(UUID uuid) {
+	public static boolean isPlayerSurvivor(UUID uuid) {
 		if (Game.getSurvivorIds().contains(uuid))
 			return true;
 		return false;
@@ -72,7 +72,7 @@ public class PlayerUtil {
 	 *           <li>otherwise</li>
 	 *         </ul>
 	 */
-	public boolean isPlayerFrozen(UUID uuid) {
+	public static boolean isPlayerFrozen(UUID uuid) {
 		if ((isPlayerSlasher(uuid) && Game.isSlasherFrozen()) || (isPlayerSurvivor(uuid) && Game.isSurvivorsFrozen()))
 			return true;
 		return false;
