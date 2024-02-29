@@ -8,7 +8,7 @@ public class PlayerUtil {
 	/**
 	 * Checks if the specified player is in the Slasher game.
 	 * @param uuid the {@link java.util.UUID UUID} of the player
-	 * @return {@link true} if the player is playing<br/>
+	 * @return {@code true} if the player is playing<br/>
 	 *         {@code false} otherwise
 	 */
 	public boolean isPlayerPlaying(UUID uuid) {
