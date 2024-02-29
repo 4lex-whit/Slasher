@@ -28,4 +28,16 @@ public class PlayerUtil {
 			return true;
 		return false;
 	}
+	
+	/**
+	 * Checks if the specified player is a survivor.
+	 * @param uuid the {@link java.util.UUID UUID} of the player
+	 * @return {@code true} if the player is a survivor<br/>
+	 *         {@code false} otherwise
+	 */
+	public boolean isPlayerSurvivor(UUID uuid) {
+		if (Game.getSurvivorIds().contains(uuid))
+			return true;
+		return false;
+	}
 }
