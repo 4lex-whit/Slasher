@@ -40,4 +40,23 @@ public class PlayerUtil {
 			return true;
 		return false;
 	}
+	
+	/**
+	 * Checks if the specified player is frozen.
+	 * @param uuid the {@link java.util.UUID UUID} of the player
+	 * @return {@code true}:
+	 *         <ul>
+	 *           <li>if the player is the slasher and the slasher is frozen</li>
+	 *           <li>if the player is a survivor and the survivors are frozen</li>
+	 *         </ul>
+	 *         {@code false}:
+	 *         <ul>
+	 *           <li>otherwise</li>
+	 *         </ul>
+	 */
+	public boolean isPlayerFrozen(UUID uuid) {
+		if ((isPlayerSlasher(uuid) && Game.isSlasherFrozen()) || (isPlayerSurvivor(uuid) && Game.isSurvivorsFrozen()))
+			return true;
+		return false;
+	}
 }
