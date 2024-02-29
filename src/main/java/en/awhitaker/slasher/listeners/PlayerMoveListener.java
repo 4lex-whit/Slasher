@@ -1,20 +1,21 @@
 package en.awhitaker.slasher.listeners;
 
+import java.util.UUID;
+
 import org.bukkit.Location;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 
-import en.awhitaker.slasher.models.Game;
+import en.awhitaker.slasher.utils.PlayerUtil;
 
 public class PlayerMoveListener implements Listener {
 	@EventHandler
 	public void onPlayerMove(PlayerMoveEvent event) {
-		Player player = event.getPlayer();
+		UUID uuid = event.getPlayer().getUniqueId();
 		
 		// check if player is frozen
-		if ((player.getUniqueId().equals(Game.getSlasherId()) && Game.isSlasherFrozen()) || (Game.getSurvivorIds().contains(player.getUniqueId()) && Game.isSurvivorsFrozen())) {
+		if (PlayerUtil.isPlayerFrozen(uuid)) {
 			Location from = event.getFrom();
 			Location to = event.getTo();
 			
