@@ -222,9 +222,7 @@ public class Game {
 		
 		
 		// end game after 10 minutes
-		Bukkit.getScheduler().runTaskLater(Slasher.getPlugin(Slasher.class), () -> {
-			end();
-		}, 12000);
+		Bukkit.getScheduler().runTaskLater(Slasher.getPlugin(Slasher.class), () -> end(), 12000);
 	}
 	
 	public static void end() {
