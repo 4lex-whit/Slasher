@@ -12,7 +12,7 @@ commands:
   slasher:
     description: Manages the Slasher game
     permission: slasher.player
-    usage: "Usage: /<command> <join|leave|start|stop|setspawn>"
+    usage: "/<command> help"
 
 permissions:
   slasher.player:

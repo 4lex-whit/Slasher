@@ -35,6 +35,23 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 		case 1:
 			// check arg 1
 			switch (args[0].toLowerCase()) {
+			case "help":
+				String msg = """
+						---------- Slasher Help ----------
+						/slasher join: Adds you to the game
+						/slasher leave: Removes you from the game""";
+				
+				// check perms
+				if (player.hasPermission("slasher.admin"))
+					msg += """
+							
+							/slasher start: Starts the game
+							/slasher stop: Stops the game
+							/slasher setspawn <hub|lobby|slasher|survivor1|survivor2|survivor3|survivor4|survivor5>: Sets a spawn to your current location""";
+				
+				player.sendMessage(msg);
+				
+				return true;
 			case "join":
 				return true;
 			case "leave":
@@ -105,7 +122,7 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 		// check args
 		switch (args.length) {
 		case 1:
-			for (String option : List.of("join", "leave"))
+			for (String option : List.of("help", "join", "leave"))
 				// check arg 1
 				if (option.startsWith(args[0].toLowerCase()))
 					options.add(option);
