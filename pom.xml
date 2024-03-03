@@ -9,6 +9,7 @@
   <description></description>
   
   <properties>
+	  <maven.compiler.release>21</maven.compiler.release>
 	  <mainClass>en.awhitaker.slasher.Slasher</mainClass>
   </properties>
   
