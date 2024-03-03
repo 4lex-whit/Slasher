@@ -11,7 +11,7 @@ website: https://github.com/4lex-whit/Slasher
 commands:
   slasher:
     description: Manages the Slasher game
-    permission: slasher
+    permission: slasher.player
     usage: "Usage: /<command> <join|leave|start|stop|setspawn>"
 
 permissions:

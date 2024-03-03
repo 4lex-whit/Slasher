@@ -36,12 +36,28 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 			// check arg 1
 			switch (args[0].toLowerCase()) {
 			case "join":
+				// check perms
+				if (!player.hasPermission("slasher.player"))
+					break;
+				
 				return true;
 			case "leave":
+				// check perms
+				if (!player.hasPermission("slasher.player"))
+					break;
+				
 				return true;
 			case "start":
+				// check perms
+				if (!player.hasPermission("slasher.admin"))
+					break;
+				
 				return true;
 			case "stop":
+				// check perms
+				if (!player.hasPermission("slasher.admin"))
+					break;
+				
 				return true;
 			}
 			
@@ -49,6 +65,10 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 		case 2:
 			// check arg 1
 			if (args[0].equalsIgnoreCase("setspawn")) {
+				// check perms
+				if (!player.hasPermission("slasher.admin"))
+					break;
+				
 				// check arg 2 & set path
 				String path = "";
 				
@@ -93,20 +113,29 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 		// check args
 		switch (args.length) {
 		case 1:
-			for (String option : List.of("join", "leave", "start", "stop", "setspawn"))
-				// check arg 1
-				if (option.startsWith(args[0].toLowerCase()))
-					options.add(option);
+			// check perms
+			if (sender.hasPermission("slasher.player"))
+				for (String option : List.of("join", "leave"))
+					// check arg 1
+					if (option.startsWith(args[0].toLowerCase()))
+						options.add(option);
+			
+			if (sender.hasPermission("slasher.admin"))
+				for (String option : List.of("start", "stop", "setspawn"))
+					// check arg 1
+					if (option.startsWith(args[0].toLowerCase()))
+						options.add(option);
 			
 			break;
 		case 2:
 			// check arg 1
-			if (args[0].equalsIgnoreCase("setspawn")) {
-				for (String option : List.of("hub", "lobby", "slasher", "survivor1", "survivor2", "survivor3", "survivor4", "survivor5"))
-					// check arg 2
-					if (option.startsWith(args[1].toLowerCase()))
-						options.add(option);
-			}
+			if (args[0].equalsIgnoreCase("setspawn"))
+				// check perms
+				if (sender.hasPermission("slasher.admin"))
+					for (String option : List.of("hub", "lobby", "slasher", "survivor1", "survivor2", "survivor3", "survivor4", "survivor5"))
+						// check arg 2
+						if (option.startsWith(args[1].toLowerCase()))
+							options.add(option);
 			
 			break;
 		}
