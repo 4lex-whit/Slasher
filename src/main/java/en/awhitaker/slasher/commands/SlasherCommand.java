@@ -36,16 +36,8 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 			// check arg 1
 			switch (args[0].toLowerCase()) {
 			case "join":
-				// check perms
-				if (!player.hasPermission("slasher.player"))
-					break;
-				
 				return true;
 			case "leave":
-				// check perms
-				if (!player.hasPermission("slasher.player"))
-					break;
-				
 				return true;
 			case "start":
 				// check perms
@@ -113,13 +105,12 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 		// check args
 		switch (args.length) {
 		case 1:
-			// check perms
-			if (sender.hasPermission("slasher.player"))
-				for (String option : List.of("join", "leave"))
-					// check arg 1
-					if (option.startsWith(args[0].toLowerCase()))
-						options.add(option);
+			for (String option : List.of("join", "leave"))
+				// check arg 1
+				if (option.startsWith(args[0].toLowerCase()))
+					options.add(option);
 			
+			// check perms
 			if (sender.hasPermission("slasher.admin"))
 				for (String option : List.of("start", "stop", "setspawn"))
 					// check arg 1
