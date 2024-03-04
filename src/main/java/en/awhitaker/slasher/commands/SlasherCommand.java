@@ -12,6 +12,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import en.awhitaker.slasher.Slasher;
+import net.md_5.bungee.api.ChatColor;
 
 public class SlasherCommand implements CommandExecutor, TabCompleter {
 	private Slasher plugin;
@@ -37,19 +38,19 @@ public class SlasherCommand implements CommandExecutor, TabCompleter {
 			switch (args[0].toLowerCase()) {
 			case "help":
 				String msg = """
-						---------- Slasher Help ----------
-						/slasher join: Adds you to the game
-						/slasher leave: Removes you from the game""";
+						&e---------- &rSlasher Help &e----------
+						&6/slasher join&r: Adds you to the game
+						&6/slasher leave&r: Removes you from the game""";
 				
 				// check perms
 				if (player.hasPermission("slasher.admin"))
 					msg += """
 							
-							/slasher start: Starts the game
-							/slasher stop: Stops the game
-							/slasher setspawn <hub|lobby|slasher|survivor1|survivor2|survivor3|survivor4|survivor5>: Sets a spawn to your current location""";
+							&6/slasher start&r: Starts the game
+							&6/slasher stop&r: Stops the game
+							&6/slasher setspawn &e<&6hub&e|&6lobby&e|&6slasher&e|&6survivor1&e|&6survivor2&e|&6survivor3&e|&6survivor4&e|&6survivor5&e>&r: Sets a spawn to your current location""";
 				
-				player.sendMessage(msg);
+				player.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
 				
 				return true;
 			case "join":
