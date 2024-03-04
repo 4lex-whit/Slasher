@@ -3,6 +3,7 @@ package en.awhitaker.slasher.commands;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -12,7 +13,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import en.awhitaker.slasher.Slasher;
-import net.md_5.bungee.api.ChatColor;
 
 public class SlasherCommand implements CommandExecutor, TabCompleter {
 	private Slasher plugin;
